@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 /**
+*Main Entry point 
 *This supposed to tell us the last digit
 *Return: Always 0 (Success)
 */
