@@ -2,11 +2,11 @@
 #include <time.h>
 #include <stdlib.h>
 /**
-*main
+*main-Entry-point 
 *This supposed to tell us the last digit
 *Return: Always 0 (Success)
 */
-int main(void)   
+int main (void)   
 {
 int n;
 int L;
