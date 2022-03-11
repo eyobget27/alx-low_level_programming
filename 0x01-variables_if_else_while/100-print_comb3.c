@@ -7,35 +7,23 @@
 * Return: Always 0 (Success)
 */
 int main(void)
+{
 int i;
 int j;
 
-i = 48;
-j = 49;
-while ((i < 57) && (j < 58))
+for (i = 48; i < 57; i++)
 {
+for (j = i + 1; j < 58; j++)
 putchar(i);
 putchar(j);
-if ((i == 56) && (j == 57))
+if (i != 56 || j != 57)
 {
-putchar('\n');
-i++;
-j++;
+putchar(',');
+putchar(' ');
 }
-else
-{
-putchar(44);
-putchar(32);
-if (j < 57)
-{
-j++;
-}
-else
-{
-i++;
-j = 1 + i;												
 }
 }
 
+putchar('\n');
 return (0);
 }
