@@ -2,11 +2,15 @@
 #include <time.h>
 #include <stdlib.h>
 /**
-* Main Entry
+* Main Entry point 
 *
 *Return: Always 0 (Success)
 */
-int main(void)
+
+/**  
+This is the main function 
+*/
+int main(void)   
 {
 int n;
 int L;
