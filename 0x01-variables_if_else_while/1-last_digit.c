@@ -2,13 +2,9 @@
 #include <time.h>
 #include <stdlib.h>
 /**
-* Main Entry point 
+*Main Entry point, this supposed to tell us the last digit
 *
 *Return: Always 0 (Success)
-*/
-
-/**  
-This is the main function 
 */
 int main(void)   
 {
