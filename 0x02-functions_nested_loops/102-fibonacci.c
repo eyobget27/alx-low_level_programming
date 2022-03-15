@@ -12,7 +12,6 @@ int main(void)
 	x = 1;
 
 	y = 2;
-	
 	printf("%ld, %ld", x, y);	
 	for (i = 0; i < 48; i++)
 	{
