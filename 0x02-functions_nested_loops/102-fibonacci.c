@@ -13,7 +13,7 @@ int main(void)
 
 	y = 2;
 
-	printf("%ld, %ld", x, y);	
+printf("%ld, %ld", x, y);	
 	for (i = 0; i < 48; i++)
 	{
 		z = x + y;
