@@ -1,46 +1,49 @@
 #include "main.h"
 /**
- * print_number - Function that prints an integer.
- * @n: int type number
- * Description: Can only use _putchar to print.
- */
+* print_number -  Entry point
+* @n: Entry variable
+*/
 void print_number(int n)
 {
-	long m; /* power of 10 */
-	int c; /* boolean check */
-	long num; /* convert int to long */
+	char d1, d2, d3, d4;
+	unsigned int num;
 
-	num = n;
-	/* negatives */
-	if (num < 0)
+	if (n >= 0 && n <= 9)
 	{
-		num *= -1;
-		_putchar('-');
+		d1 = n;
+		_putchar(d1 + '0');
 	}
-
-	/* count up */
-	m = 1;
-	c = 1;
-	while (c)
+	if (n >=  10 && n <= 99)
 	{
-		if (num / (m * 10) > 0)
-			m *= 10;
-		else
-			c = 0;
+		d1 = n / 10;
+		d2 = n % 10;
+		_putchar(d1 + '0'), _putchar(d2 + '0');
 	}
-
-	/* count down */
-	while (num >= 0)
+	if (n >= 100 && n <= 999)
 	{
-		if (m == 1)
-		{
-			_putchar(num % 10 + '0');
-			num = -1;
-		}
-		else
-		{
-			_putchar((num / m % 10) + '0');
-			m /= 10;
-		}
+		d1 = n / 100;
+		d2 = (n / 10) % 10;
+		d3 = n % 10;
+		_putchar(d1 + '0');
+		_putchar(d2 + '0');
+		_putchar(d3 + '0');
+	}
+	if (n >= 1000 && n <= 9999)
+	{
+		d1 = n / 1000;
+		d2 = (n / 100) % 10;
+		d3 = (n % 100) / 10;
+		d4 = n % 10;
+		_putchar(d1 + '0');
+		_putchar(d2 + '0');
+		_putchar(d3 + '0');
+		_putchar(d4 + '0');
+	}
+	if (n <= -10 && n >= -99)
+	{
+		num = n * (-1);
+		d1 = num / 10;
+		d2 = num % 10;
+		_putchar('-'), _putchar(d1 + '0'), _putchar(d2 + '0');
 	}
 }
