@@ -1,34 +1,33 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* print_triangle - print a triangle aligned right, using '#'
-* @size: Size of triangle
+* print_triangle - Entry point
+* @size: Entry variabale
 */
 void print_triangle(int size)
 {
-	int c, i, j;
+	int i, j;
 
-	c = 0;
-	
-	i = size - 1;
-	
-	while (c < size)
-	{
-		i = size - 1 - c;
-		j = c + 1;
-		while (i > 0)
-		{
-			_putchar(' ');
-			i--;
-		}
-		while (j > 0)
-		{
-			_putchar('#');
-			j--;
-		}
-		_putchar('\n');
-		c++;
-	}
 	if (size <= 0)
+	{
 		_putchar('\n');
+	}
+	else
+	{
+		for (i = 1; i <= size; i++)
+		{
+			for (j = 1; j <= size; j++)
+			{
+				if (j != size && j <= size - i)
+				{
+					_putchar(' ');
+				}
+				else
+				{
+					_putchar('#');
+				}
+			}
+			_putchar('\n');
+		}
+	}
 }
