@@ -1,49 +1,20 @@
 #include "main.h"
 /**
-* print_number -  Entry point
-* @n: Entry variable
+* print_number - prints an integer
+* @n:.input integer parameter
 */
 void print_number(int n)
 {
-	char d1, d2, d3, d4;
-	unsigned int num;
+	unsigned int i = n;
 
-	if (n >= 0 && n <= 9)
+	if (n < 0)
 	{
-		d1 = n;
-		_putchar(d1 + '0');
+		_putchar(45);
+		i = -i;
 	}
-	if (n >=  10 && n <= 99)
+	if (i / 10)
 	{
-		d1 = n / 10;
-		d2 = n % 10;
-		_putchar(d1 + '0'), _putchar(d2 + '0');
+		print_number(i / 10);
 	}
-	if (n >= 100 && n <= 999)
-	{
-		d1 = n / 100;
-		d2 = (n / 10) % 10;
-		d3 = n % 10;
-		_putchar(d1 + '0');
-		_putchar(d2 + '0');
-		_putchar(d3 + '0');
-	}
-	if (n >= 1000 && n <= 9999)
-	{
-		d1 = n / 1000;
-		d2 = (n / 100) % 10;
-		d3 = (n % 100) / 10;
-		d4 = n % 10;
-		_putchar(d1 + '0');
-		_putchar(d2 + '0');
-		_putchar(d3 + '0');
-		_putchar(d4 + '0');
-	}
-	if (n <= -10 && n >= -99)
-	{
-		num = n * (-1);
-		d1 = num / 10;
-		d2 = num % 10;
-		_putchar('-'), _putchar(d1 + '0'), _putchar(d2 + '0');
-	}
+	_putchar(i % 10 + '0');
 }
