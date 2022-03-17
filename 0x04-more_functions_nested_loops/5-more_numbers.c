@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* more_numbers - check the code for Holberton School students.
+* more_numbers - checks between 0 and 14.
 * Return: Always 0.
 */
 void more_numbers(void)
