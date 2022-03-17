@@ -1,27 +1,34 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* main - check the code for Holberton School students.
-*
-* Return: Always 0.
+* print_triangle - print a triangle aligned right, using '#'
+* @size: Size of triangle
 */
-int main(void)
+void print_triangle(int size)
 {
-	int num;
+	int c, i, j;
 
-	for (num = 1; num < 101; num++)
+	c = 0;
+	
+	i = size - 1;
+	
+	while (c < size)
 	{
-		if (num % 15 == 0)
-			printf("FizzBuzz");
-		else if (num % 3 == 0)
-			printf("Fizz");
-		else if (num % 5 == 0)
-			printf("Buzz");
-		else
-			printf("%d", num);
-		if (num != 100)
-			printf(" ");
+		i = size - 1 - c;
+		j = c + 1;
+		while (i > 0)
+		{
+			_putchar(' ');
+			i--;
+		}
+		while (j > 0)
+		{
+			_putchar('#');
+			j--;
+		}
+		_putchar('\n');
+		c++;
 	}
-	printf("\n");
-	return (0);
+	if (size <= 0)
+		_putchar('\n');
 }
