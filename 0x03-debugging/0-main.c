@@ -14,8 +14,7 @@ int main(void)
         else
                 printf("%d is negative\n", n);
         positive_or_negative(int i);
-
-
+        
         return (0);
 }
 
