@@ -1,33 +1,33 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 /**
-* print_triangle - Entry point
-* @size: Entry variabale
-*/
-void print_triangle(int size)
+ * main - prints the numbers from 1 to 100
+ * 3 multiples print Fizz instead of the number
+ * 5 multiples print Buzz instead of the number
+ * 3 & 5 multiples print FizzBuzz instead of the number
+ * Return: Always 0 (Success)
+ */
+int main(void)
 {
-	int i, j;
+	int i;
+	char f[] = "Fizz";
+	char b[] = "Buzz";
+	char fb[] = "FizzBuzz";
 
-	if (size <= 0)
+	for (i = 1; i <= 100; i++)
 	{
-		_putchar('\n');
+		if (i == 100)
+			printf("%s", b);
+		else if ((i % 3 == 0) && (i % 5 == 0))
+			printf("%s ", fb);
+		else if (i % 3 == 0)
+			printf("%s ", f);
+		else if (i % 5 == 0)
+			printf("%s ", b);
+		else
+			printf("%d ", i);
 	}
-	else
-	{
-		for (i = 1; i <= size; i++)
-		{
-			for (j = 1; j <= size; j++)
-			{
-				if (j != size && j <= size - i)
-				{
-					_putchar(' ');
-				}
-				else
-				{
-					_putchar('#');
-				}
-			}
-			_putchar('\n');
-		}
-	}
+	printf("\n");
+	return (0);
 }
