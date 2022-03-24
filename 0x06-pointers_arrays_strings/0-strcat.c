@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strcat - check the code for Holberton School students.
+ * _strcat - checks the code
  * @dest: is a pointer type char
  * @src: is a pointer type char
  * Return: Always 0.
