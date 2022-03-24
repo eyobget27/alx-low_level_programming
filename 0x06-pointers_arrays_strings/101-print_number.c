@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * print_number - check the code for Holberton School students.
+ * print_number - checks the code
  * @n: is a int number
  * Return: Always 0.
  */
