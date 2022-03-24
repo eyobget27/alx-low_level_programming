@@ -1,7 +1,7 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdlib.h>
 /**
- * print_number - checks the code
+ * print_number - checks the code 
  * @n: is a int number
  * Return: Always 0.
  */
