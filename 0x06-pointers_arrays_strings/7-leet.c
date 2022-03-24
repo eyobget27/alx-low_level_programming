@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * leet - check the code for Holberton School students.
+ * leet - checks the code
  * @a: is a pointer type char
  * Return: Always 0.
  *
