@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * reverse_array - check the code for Holberton School students.
+ * reverse_array - checks the code
  * @a: is a pointer type char
  * @n: is a pointer type char
  * Return: Always 0.
