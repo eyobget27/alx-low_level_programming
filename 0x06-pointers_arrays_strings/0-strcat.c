@@ -1,17 +1,26 @@
-#include "main.h"
+#include "holberton.h"
+#include <stdio.h>
 /**
-* _memset - Entry point
-* @s: pointed destination
-* @b: constant byte
-* @n: bytes
-* Return: Always 0 (Success)
+* _strcat - check the code for Holberton School students.
+* @dest: is a pointer type char
+* @src: is a pointer type char
+* Return: Always 0.
 */
-char *_memset(char *s, char b, unsigned int n)
+char *_strcat(char *dest, char *src)
 {
-	unsigned int i;
-
-	for (i = 0; i < n; i++)
-		s[i] = b;
-
-	return (s);
+int i, j;
+	
+for (i = 0; *dest != 0; i++)
+dest++;
+for (j = 0; src[j] != 0; j++)
+{
+*dest = src[j];
+	
+dest++;
+}
+*dest = '\0';
+	
+dest -= (i + j);
+	
+return (dest);
 }
