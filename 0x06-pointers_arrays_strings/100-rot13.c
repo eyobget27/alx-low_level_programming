@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * rot13 - check the code for Holberton School students.
+ * rot13 - checks the code 
  * @a: is a pointer type char
  * Return: Always 0.
  *
