@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * cap_string - check the code for Holberton School students.
+ * cap_string - checks the code
  * @a: is a pointer type char
  * Return: Always 0.
  *
