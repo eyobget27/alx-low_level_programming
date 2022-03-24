@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * string_toupper - check the code for Holberton School students.
+ * string_toupper - checks the code 
  * @s1: is a pointer type char
  * Return: Always 0.
  *
