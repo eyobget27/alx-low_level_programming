@@ -2,26 +2,21 @@
 #include <stdio.h>
 
 /**
-* _strcmp - check the code for Holberton School students.
-* @s1: is a pointer type char
-* @s2: is a pointer type char
+* _strncpy - check the code for Holberton School students.
+* @dest: is a pointer type char
+* @src: is a pointer type char
+* @n: is a int variable
 * Return: Always 0.
 */
-int _strcmp(char *s1, char *s2)
+char *_strncpy(char *dest, char *src, int n)
 {
-int result, i;
+int i;
 
-for (i = 0; s1[i] != '\0'; i++)
-{
-if (s1[i] == s2[i])
-result = (s1[i] - '0') - (s2[i] - '0');
+for (i = 0; i < n && src[i] != '\0'; i++)
+dest[i] = src[i];
 
-else
-{
-result = (s1[i] - '0') - (s2[i] - '0');
-break;
-}
-}
+for ( ; i < n; i++)
+dest[i] = '\0';
 
-return (result);
+return (dest);
 }
