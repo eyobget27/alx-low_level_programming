@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strcmp - check the code for Holberton School students.
+ * _strcmp - checks the code 
  * @s1: is a pointer type char
  * @s2: is a pointer type char
  * Return: Always 0.
