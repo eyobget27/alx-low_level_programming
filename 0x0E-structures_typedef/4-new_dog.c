@@ -1,53 +1,74 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "dog.h"
-int get_len(int i);
-char *str_cpy(char *dest, char *src);
+char *_strdup(char *str);
+
 /**
- * new_dog - a function that creates a new dog
- * get len of name + owner, malloc them, cpy name + owner to new
- * @name: name
- * @age: age
- * @owner: owner
- * Return: 0
+ * new_dog - function with 3 arguments
+ * @name: char type pointer
+ * @age: float type
+ * @owner: char type pointer
+ *
+ * Description: creates a new dog
+ * Return: NULL if fail or pointer
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_name;
-	char *copy_name, *copy_owner;
-	unsigned int x, name_len = 0, owner_len = 0;
+	dog_t *new_d;
 
-	new_name = malloc(sizeof(dog_t));
-	if (name == NULL)
+	new_d = malloc(sizeof(dog_t));
+	if (new_d == NULL)
 		return (NULL);
-	if (name == NULL || age <= 0 || owner == NULL)
+
+	new_d->name = _strdup(name);
+	if (!new_d->name)
 	{
-		free(new_name);
+		free(new_d);
+		return (NULL);
+	}
+	new_d->age = age;
+	new_d->owner = _strdup(owner);
+	if (!new_d->owner)
+	{
+		free(new_d->name);
+		free(new_d);
 		return (NULL);
 	}
 
-	for (x = 0; name[x] != '\0'; x++)
-		name_len++;
+	return (new_d);
 
-	for (x = 0; owner[x] != '\0'; x++)
-		owner_len++;
+}
 
-	copy_name = malloc(sizeof(char) * (name_len + 1));
-	if (copy_name == NULL)
+/**
+ * *_strdup - function with one argument
+ * @str: string argument
+ *
+ * Description: returns a pointer to allocated space in memory
+ * Return: pointer
+ */
+char *_strdup(char *str)
+{
+	int i, j;
+	char *ptr;
+
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (*(str + i) != '\0')
+	{
+		i++;
+	}
+
+	ptr = malloc(sizeof(char) * i + 1);
+
+	if (ptr == NULL)
 		return (NULL);
 
-	copy_owner = malloc(sizeof(char) * (owner_len + 1));
-	if (copy_owner == NULL)
-		return (NULL);
-
-	for (x = 0; x <= name_len; x++)
-		copy_name[x] = name[x];
-
-	for (x = 0; x <= owner_len; x++)
-		copy_owner[x] = owner[x];
-
-	new_name->name = copy_name;
-	new_name->owner = copy_owner;
-	new_name->age = age;
-	return (new_name);
+	j = 0;
+	while (str[j] != '\0')
+	{
+		ptr[j] = str[j];
+		j++;
+	}
+	ptr[j] = '\0';
+	return (ptr);
 }
