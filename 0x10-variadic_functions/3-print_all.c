@@ -1,92 +1,79 @@
-#include <stdarg.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include "variadic_functions.h"
-
 /**
- * print_c - print a char
- * @c: char to print
- *
- * Return: void
+ * print_int - prints an int
+ * @args: the list of args
  */
-void print_c(va_list c)
+void print_int(va_list args)
 {
-	printf("%c", va_arg(c, int));
+	printf("%d", va_arg(args, int));
 }
-
 /**
- * print_s - prints a string
- * @s: string to print
- *
- * Return: void
+ * print_char - prints a char
+ * @args: the list of args
  */
-void print_s(va_list s)
+void print_char(va_list args)
 {
-	char *str = va_arg(s, char *);
-
-	if (str == NULL)
-		str = "(nil)";
-	printf("%s", str);
+	printf("%c", va_arg(args, int));
 }
-
 /**
- * print_i - prints an int
- * @i: int to print
- *
- * Return: void
+ * print_string - prints a string
+ * @args: the list of args
  */
-void print_i(va_list i)
+void print_string(va_list args)
 {
-	printf("%d", va_arg(i, int));
-}
+	char *z = va_arg(args, char *);
 
+	if (!z)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", z);
+}
 /**
- * print_f - prints a float
- * @f: float to print
- *
- * Return: void
+ * print_float - prints floats
+ * @args: the list of args
  */
-void print_f(va_list f)
+void print_float(va_list args)
 {
-	printf("%f", va_arg(f, double));
+	printf("%f", va_arg(args, double));
 }
-
 /**
- * print_all - prints anything
- * @format: list of argument types passed to the function
- *
- * Return: void
+ * print_all - prints all
+ * @format: formats of arg
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i, j;
-	print_t p[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"i", print_i},
-		{"f", print_f},
-		{NULL, NULL}
+	types_t types[] = {
+	{'c', print_char},
+	{'i', print_int},
+	{'f', print_float},
+	{'s', print_string},
+	{'\0', NULL}
 	};
-	va_list valist;
-	char *separator = "";
+	va_list args;
+	char *sep1 = "", *sep2 = ", ";
+	int count1 = 0, count2 = 0;
 
-	va_start(valist, format);
-	i = 0;
-	while (format && format[i])
+	va_start(args, format);
+	while (format !=  NULL && format[count1] != '\0')
 	{
-		j = 0;
-		while (p[j].t != NULL)
+		count2 = 0;
+		while (types[count2].z != '\0')
 		{
-			if (*(p[j].t) == format[i])
+			if (format[count1] == types[count2].z)
 			{
-				printf("%s", separator);
-				p[j].f(valist);
-				separator = ", ";
-				break;
+				printf("%s", sep1);
+				types[count2].f(args);
+				sep1 = sep2;
 			}
-			j++;
+			count2++;
 		}
-		i++;
+		count1++;
 	}
-	va_end(valist);
 	printf("\n");
+	va_end(args);
 }
