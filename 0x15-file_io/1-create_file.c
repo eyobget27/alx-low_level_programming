@@ -1,34 +1,28 @@
 #include "main.h"
 /**
- * create_file - Entry Point
- * @filename: file name
- * @text_content: null terminated string to write
- * Return: 1
- */
+  * create_file - creates a file with rw------- permissions
+  * @filename: name of the file, if NULL, return -1
+  * @text_content: contents of the file. If NULL, create an empty file
+  * Return: 1 on success, -1 on failure
+  */
 int create_file(const char *filename, char *text_content)
 {
-	int file, i = 0;
+	int new_file, len, wr_stat;
 
 	if (filename == NULL)
 		return (-1);
-
-	file = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
-	if (file == -1)
+	new_file = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (new_file == -1)
 		return (-1);
-
-	while (text_content[i])
-		i++;
-
 	if (text_content == NULL)
 	{
-		close(file);
+		close(new_file);
+		return (1);
+	}
+	for (len = 0; text_content[len]; len++)
+		;
+	wr_stat = write(new_file, text_content, len);
+	if (close(new_file) == -1)
 		return (-1);
-	}
-	else
-	{
-		write(file, text_content, i);
-	}
-
-	close(file);
-	return (1);
+	return (wr_stat == -1 ? -1 : 1);
 }
